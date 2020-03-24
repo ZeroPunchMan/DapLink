@@ -13,17 +13,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L MCU_ST_STM32F1:STM32F103CBTx U1
-U 1 1 5E71E086
-P 4450 3350
-F 0 "U1" H 4400 3300 50  0000 C CNN
-F 1 "STM32F103CBTx" H 4400 2800 50  0000 C CNN
-F 2 "Package_QFP:LQFP-48_7x7mm_P0.5mm" H 3850 1950 50  0001 R CNN
-F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00161566.pdf" H 4450 3350 50  0001 C CNN
-	1    4450 3350
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4350 1850 4350 1700
 Wire Wire Line
@@ -735,11 +724,6 @@ NoConn ~ 3750 3150
 NoConn ~ 3750 2950
 NoConn ~ 3750 2850
 NoConn ~ 3750 2750
-NoConn ~ 5050 3150
-NoConn ~ 5050 3250
-NoConn ~ 5050 3350
-NoConn ~ 5050 3450
-NoConn ~ 5050 3550
 NoConn ~ 5050 3650
 NoConn ~ 5050 3950
 $Comp
@@ -794,4 +778,144 @@ F 3 "" H 5700 1800 50  0001 C CNN
 	1    5700 1800
 	1    0    0    -1  
 $EndComp
+$Comp
+L MCU_ST_STM32F1:STM32F103CBTx U1
+U 1 1 5E71E086
+P 4450 3350
+F 0 "U1" H 4400 3300 50  0000 C CNN
+F 1 "STM32F103CBTx" H 4400 2800 50  0000 C CNN
+F 2 "Package_QFP:LQFP-48_7x7mm_P0.5mm" H 3850 1950 50  0001 R CNN
+F 3 "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00161566.pdf" H 4450 3350 50  0001 C CNN
+	1    4450 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 3150 5400 3150
+Wire Wire Line
+	5050 3250 5400 3250
+Wire Wire Line
+	5050 3350 5400 3350
+Wire Wire Line
+	5050 3450 5400 3450
+Wire Wire Line
+	5050 3550 5400 3550
+Text Label 5250 3150 0    50   ~ 0
+PA0
+Text Label 5250 3250 0    50   ~ 0
+PA1
+Text Label 5250 3350 0    50   ~ 0
+PA2
+Text Label 5250 3450 0    50   ~ 0
+PA3
+Text Label 5250 3550 0    50   ~ 0
+PA4
+Wire Wire Line
+	4550 5550 4850 5550
+Wire Wire Line
+	4550 5650 4850 5650
+Wire Wire Line
+	4550 5750 4850 5750
+Wire Wire Line
+	4550 5850 4850 5850
+Wire Wire Line
+	4550 5950 4850 5950
+$Comp
+L Connector:Conn_01x06_Male J4
+U 1 1 5E7D84F3
+P 4350 5750
+F 0 "J4" H 4458 6131 50  0000 C CNN
+F 1 "PAEX_CONN_6P" H 4458 6040 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 4350 5750 50  0001 C CNN
+F 3 "~" H 4350 5750 50  0001 C CNN
+	1    4350 5750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4550 6050 4850 6050
+$Comp
+L power:GND #PWR06
+U 1 1 5E7DCB29
+P 4850 6050
+F 0 "#PWR06" H 4850 5800 50  0001 C CNN
+F 1 "GND" H 4855 5877 50  0000 C CNN
+F 2 "" H 4850 6050 50  0001 C CNN
+F 3 "" H 4850 6050 50  0001 C CNN
+	1    4850 6050
+	1    0    0    -1  
+$EndComp
+Text Label 5250 5550 0    50   ~ 0
+PA0
+Text Label 5250 5650 0    50   ~ 0
+PA1
+Text Label 5250 5750 0    50   ~ 0
+PA2
+Text Label 5250 5850 0    50   ~ 0
+PA3
+Text Label 5250 5950 0    50   ~ 0
+PA4
+$Comp
+L Device:R R11
+U 1 1 5E79F696
+P 5000 5550
+F 0 "R11" V 4950 5400 50  0000 C CNN
+F 1 "1K" V 4950 5700 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 4930 5550 50  0001 C CNN
+F 3 "~" H 5000 5550 50  0001 C CNN
+	1    5000 5550
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R13
+U 1 1 5E79FF83
+P 5000 5650
+F 0 "R13" V 4950 5500 50  0000 C CNN
+F 1 "1K" V 4950 5800 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 4930 5650 50  0001 C CNN
+F 3 "~" H 5000 5650 50  0001 C CNN
+	1    5000 5650
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R14
+U 1 1 5E7A0232
+P 5000 5750
+F 0 "R14" V 4950 5600 50  0000 C CNN
+F 1 "1K" V 4950 5900 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 4930 5750 50  0001 C CNN
+F 3 "~" H 5000 5750 50  0001 C CNN
+	1    5000 5750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R15
+U 1 1 5E7A0411
+P 5000 5850
+F 0 "R15" V 4950 5700 50  0000 C CNN
+F 1 "1K" V 4950 6000 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 4930 5850 50  0001 C CNN
+F 3 "~" H 5000 5850 50  0001 C CNN
+	1    5000 5850
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R16
+U 1 1 5E7A06A9
+P 5000 5950
+F 0 "R16" V 4950 5800 50  0000 C CNN
+F 1 "1K" V 4950 6100 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 4930 5950 50  0001 C CNN
+F 3 "~" H 5000 5950 50  0001 C CNN
+	1    5000 5950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5150 5550 5300 5550
+Wire Wire Line
+	5150 5650 5300 5650
+Wire Wire Line
+	5150 5750 5300 5750
+Wire Wire Line
+	5150 5850 5300 5850
+Wire Wire Line
+	5150 5950 5300 5950
 $EndSCHEMATC
