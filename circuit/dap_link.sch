@@ -37,10 +37,6 @@ F 3 " ~" H 8650 1800 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	8800 1650 8950 1650
-Text Label 10050 1850 0    50   ~ 0
-USB_D+
-Text Label 10050 1950 0    50   ~ 0
-USB_D-
 Wire Wire Line
 	8500 2250 8500 2350
 $Comp
@@ -972,8 +968,8 @@ F 3 "~" H 8500 2450 50  0001 C CNN
 	1    8500 2450
 	-1   0    0    1   
 $EndComp
-Text Label 8900 1850 0    50   ~ 0
-USB_CONN_D+
-Text Label 8900 1950 0    50   ~ 0
-USB_CONN_D-
+Text Label 10050 1950 0    50   ~ 0
+USB_D-
+Text Label 10050 1850 0    50   ~ 0
+USB_D+
 $EndSCHEMATC
