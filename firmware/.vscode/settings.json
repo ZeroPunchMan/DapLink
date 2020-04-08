@@ -1,0 +1,6 @@
+{
+    "files.exclude": {
+        "*.ioc": true,
+        ".mxproject": true,
+    }
+}
