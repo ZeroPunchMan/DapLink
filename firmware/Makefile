@@ -44,7 +44,10 @@ Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_pwr.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c \
-Src/system_stm32f1xx.c  
+Src/system_stm32f1xx.c 
+
+C_SOURCES += common/mcu-misc/independent/src/sys_time.c
+
 
 # ASM sources
 ASM_SOURCES =  \
@@ -113,7 +116,8 @@ C_INCLUDES =  \
 -IDrivers/STM32F1xx_HAL_Driver/Inc \
 -IDrivers/CMSIS/Device/ST/STM32F1xx/Include \
 -IDrivers/CMSIS/Include \
--IDrivers/CMSIS/Include
+-Icommon/clib/inc \
+-Icommon/mcu-misc/independent/inc 
 
 
 # compile gcc flags

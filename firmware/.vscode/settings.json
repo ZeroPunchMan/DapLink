@@ -2,5 +2,18 @@
     "files.exclude": {
         "*.ioc": true,
         ".mxproject": true,
-    }
+        "common/clib/testcase" : true,
+        "common/clib/Makefile" : true,
+        "common/clib/.vscode" : true,
+        "common/clib/.gitignore" : true
+    },
+    "files.associations": {
+        "sys_time.h": "c",
+        "cl_common.h": "c",
+        "string.h": "c",
+        "stdint.h": "c",
+        "stdio.h": "c",
+        "cstdint": "c"
+    },
+    "workbench.editor.enablePreview": false
 }

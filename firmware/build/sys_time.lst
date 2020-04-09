@@ -1,0 +1,193 @@
+ARM GAS  /tmp/ccMVZDHD.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"sys_time.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.DelayMs,"ax",%progbits
+  16              		.align	1
+  17              		.global	DelayMs
+  18              		.arch armv7-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu softvfp
+  24              	DelayMs:
+  25              	.LVL0:
+  26              	.LFB7:
+  27              		.file 1 "common/mcu-misc/independent/src/sys_time.c"
+   1:common/mcu-misc/independent/src/sys_time.c **** #include "sys_time.h"
+   2:common/mcu-misc/independent/src/sys_time.c **** 
+   3:common/mcu-misc/independent/src/sys_time.c **** uint64_t g_sysTotalTime = 0; //系统时间,单位毫秒,不考虑溢出
+   4:common/mcu-misc/independent/src/sys_time.c **** 
+   5:common/mcu-misc/independent/src/sys_time.c **** void DelayMs(uint16_t ms)
+   6:common/mcu-misc/independent/src/sys_time.c **** {
+  28              		.loc 1 6 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              		.loc 1 6 1 is_stmt 0 view .LVU1
+  34 0000 30B4     		push	{r4, r5}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 8
+  37              		.cfi_offset 4, -8
+  38              		.cfi_offset 5, -4
+   7:common/mcu-misc/independent/src/sys_time.c ****     uint64_t targetTime;
+  39              		.loc 1 7 5 is_stmt 1 view .LVU2
+   8:common/mcu-misc/independent/src/sys_time.c ****     targetTime = g_sysTotalTime + ms;
+  40              		.loc 1 8 5 view .LVU3
+  41              		.loc 1 8 33 is_stmt 0 view .LVU4
+  42 0002 064B     		ldr	r3, .L4
+  43 0004 D3E90023 		ldrd	r2, [r3]
+  44              		.loc 1 8 16 view .LVU5
+  45 0008 1418     		adds	r4, r2, r0
+  46 000a 43F10005 		adc	r5, r3, #0
+  47              	.LVL1:
+   9:common/mcu-misc/independent/src/sys_time.c ****     while(g_sysTotalTime < targetTime)
+  48              		.loc 1 9 5 is_stmt 1 view .LVU6
+  49              	.L2:
+ARM GAS  /tmp/ccMVZDHD.s 			page 2
+
+
+  10:common/mcu-misc/independent/src/sys_time.c ****     {
+  11:common/mcu-misc/independent/src/sys_time.c **** 			
+  12:common/mcu-misc/independent/src/sys_time.c ****     }
+  50              		.loc 1 12 5 discriminator 1 view .LVU7
+   9:common/mcu-misc/independent/src/sys_time.c ****     while(g_sysTotalTime < targetTime)
+  51              		.loc 1 9 10 discriminator 1 view .LVU8
+  52 000e AB42     		cmp	r3, r5
+  53 0010 08BF     		it	eq
+  54 0012 A242     		cmpeq	r2, r4
+  55 0014 FBD3     		bcc	.L2
+  13:common/mcu-misc/independent/src/sys_time.c **** }
+  56              		.loc 1 13 1 is_stmt 0 view .LVU9
+  57 0016 30BC     		pop	{r4, r5}
+  58              	.LCFI1:
+  59              		.cfi_restore 5
+  60              		.cfi_restore 4
+  61              		.cfi_def_cfa_offset 0
+  62              	.LVL2:
+  63              		.loc 1 13 1 view .LVU10
+  64 0018 7047     		bx	lr
+  65              	.L5:
+  66 001a 00BF     		.align	2
+  67              	.L4:
+  68 001c 00000000 		.word	.LANCHOR0
+  69              		.cfi_endproc
+  70              	.LFE7:
+  72              		.section	.text.DelayUs,"ax",%progbits
+  73              		.align	1
+  74              		.global	DelayUs
+  75              		.syntax unified
+  76              		.thumb
+  77              		.thumb_func
+  78              		.fpu softvfp
+  80              	DelayUs:
+  81              	.LVL3:
+  82              	.LFB8:
+  14:common/mcu-misc/independent/src/sys_time.c **** 
+  15:common/mcu-misc/independent/src/sys_time.c **** 
+  16:common/mcu-misc/independent/src/sys_time.c **** void DelayUs(uint16_t us)
+  17:common/mcu-misc/independent/src/sys_time.c **** {
+  83              		.loc 1 17 1 is_stmt 1 view -0
+  84              		.cfi_startproc
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 0, uses_anonymous_args = 0
+  87              		@ link register save eliminated.
+  18:common/mcu-misc/independent/src/sys_time.c ****     int i;
+  88              		.loc 1 18 5 view .LVU12
+  19:common/mcu-misc/independent/src/sys_time.c ****     for(i = 0; i < us; i++)
+  89              		.loc 1 19 5 view .LVU13
+  90              		.loc 1 19 11 is_stmt 0 view .LVU14
+  91 0000 0023     		movs	r3, #0
+  92              	.LVL4:
+  93              	.L7:
+  94              		.loc 1 19 16 is_stmt 1 discriminator 1 view .LVU15
+  95              		.loc 1 19 5 is_stmt 0 discriminator 1 view .LVU16
+  96 0002 9842     		cmp	r0, r3
+  97 0004 05DD     		ble	.L9
+ARM GAS  /tmp/ccMVZDHD.s 			page 3
+
+
+  20:common/mcu-misc/independent/src/sys_time.c ****     {
+  21:common/mcu-misc/independent/src/sys_time.c ****         __asm volatile ("nop");
+  98              		.loc 1 21 9 is_stmt 1 discriminator 3 view .LVU17
+  99              		.syntax unified
+ 100              	@ 21 "common/mcu-misc/independent/src/sys_time.c" 1
+ 101 0006 00BF     		nop
+ 102              	@ 0 "" 2
+  22:common/mcu-misc/independent/src/sys_time.c ****         __asm volatile ("nop");
+ 103              		.loc 1 22 9 discriminator 3 view .LVU18
+ 104              	@ 22 "common/mcu-misc/independent/src/sys_time.c" 1
+ 105 0008 00BF     		nop
+ 106              	@ 0 "" 2
+  23:common/mcu-misc/independent/src/sys_time.c ****         __asm volatile ("nop");
+ 107              		.loc 1 23 9 discriminator 3 view .LVU19
+ 108              	@ 23 "common/mcu-misc/independent/src/sys_time.c" 1
+ 109 000a 00BF     		nop
+ 110              	@ 0 "" 2
+  24:common/mcu-misc/independent/src/sys_time.c ****         __asm volatile ("nop");
+ 111              		.loc 1 24 9 discriminator 3 view .LVU20
+ 112              	@ 24 "common/mcu-misc/independent/src/sys_time.c" 1
+ 113 000c 00BF     		nop
+ 114              	@ 0 "" 2
+  19:common/mcu-misc/independent/src/sys_time.c ****     {
+ 115              		.loc 1 19 24 discriminator 3 view .LVU21
+  19:common/mcu-misc/independent/src/sys_time.c ****     {
+ 116              		.loc 1 19 25 is_stmt 0 discriminator 3 view .LVU22
+ 117              		.thumb
+ 118              		.syntax unified
+ 119 000e 0133     		adds	r3, r3, #1
+ 120              	.LVL5:
+  19:common/mcu-misc/independent/src/sys_time.c ****     {
+ 121              		.loc 1 19 25 discriminator 3 view .LVU23
+ 122 0010 F7E7     		b	.L7
+ 123              	.L9:
+  25:common/mcu-misc/independent/src/sys_time.c ****     }
+  26:common/mcu-misc/independent/src/sys_time.c **** }
+ 124              		.loc 1 26 1 view .LVU24
+ 125 0012 7047     		bx	lr
+ 126              		.cfi_endproc
+ 127              	.LFE8:
+ 129              		.global	g_sysTotalTime
+ 130              		.section	.bss.g_sysTotalTime,"aw",%nobits
+ 131              		.align	3
+ 132              		.set	.LANCHOR0,. + 0
+ 135              	g_sysTotalTime:
+ 136 0000 00000000 		.space	8
+ 136      00000000 
+ 137              		.text
+ 138              	.Letext0:
+ 139              		.file 2 "/usr/share/gcc-arm-none-eabi/arm-none-eabi/include/machine/_default_types.h"
+ 140              		.file 3 "/usr/share/gcc-arm-none-eabi/arm-none-eabi/include/sys/_stdint.h"
+ 141              		.file 4 "/usr/share/gcc-arm-none-eabi/arm-none-eabi/include/sys/lock.h"
+ 142              		.file 5 "/usr/share/gcc-arm-none-eabi/arm-none-eabi/include/sys/_types.h"
+ 143              		.file 6 "/usr/share/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/9.2.1/include/stddef.h"
+ 144              		.file 7 "/usr/share/gcc-arm-none-eabi/arm-none-eabi/include/sys/reent.h"
+ 145              		.file 8 "common/mcu-misc/independent/inc/sys_time.h"
+ARM GAS  /tmp/ccMVZDHD.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 sys_time.c
+     /tmp/ccMVZDHD.s:16     .text.DelayMs:0000000000000000 $t
+     /tmp/ccMVZDHD.s:24     .text.DelayMs:0000000000000000 DelayMs
+     /tmp/ccMVZDHD.s:68     .text.DelayMs:000000000000001c $d
+     /tmp/ccMVZDHD.s:73     .text.DelayUs:0000000000000000 $t
+     /tmp/ccMVZDHD.s:80     .text.DelayUs:0000000000000000 DelayUs
+     /tmp/ccMVZDHD.s:135    .bss.g_sysTotalTime:0000000000000000 g_sysTotalTime
+     /tmp/ccMVZDHD.s:131    .bss.g_sysTotalTime:0000000000000000 $d
+
+NO UNDEFINED SYMBOLS

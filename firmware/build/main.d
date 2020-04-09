@@ -13,7 +13,8 @@ build/main.o: Src/main.c Inc/main.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_pwr.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_dma.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_gpio.h Inc/gpio.h \
- Inc/main.h
+ Inc/main.h common/mcu-misc/independent/inc/sys_time.h \
+ common/clib/inc/cl_common.h
 
 Inc/main.h:
 
@@ -52,3 +53,7 @@ Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_gpio.h:
 Inc/gpio.h:
 
 Inc/main.h:
+
+common/mcu-misc/independent/inc/sys_time.h:
+
+common/clib/inc/cl_common.h:
