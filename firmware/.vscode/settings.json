@@ -15,5 +15,5 @@
         "stdio.h": "c",
         "cstdint": "c"
     },
-    "workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": false,
 }

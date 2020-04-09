@@ -24,7 +24,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "sys_time.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -80,9 +80,9 @@ int main(void)
 
   /* System interrupt init*/
 
-  /** DISABLE: JTAG-DP Disabled and SW-DP Disabled 
+  /** NOJTAG: JTAG-DP Disabled and SW-DP Enabled 
   */
-  LL_GPIO_AF_DisableRemap_SWJ();
+  LL_GPIO_AF_Remap_SWJ_NOJTAG();
 
   /* USER CODE BEGIN Init */
 
@@ -108,10 +108,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    for (int i = 0; i < 50; i++)
+    for (int i = 0; i < 800; i++)
       DelayUs(10000);
     LL_GPIO_SetOutputPin(GPIOA, LL_GPIO_PIN_7 | LL_GPIO_PIN_8);
-    for (int i = 0; i < 50; i++)
+    for (int i = 0; i < 500; i++)
       DelayUs(10000);
     LL_GPIO_ResetOutputPin(GPIOA, LL_GPIO_PIN_7 | LL_GPIO_PIN_8);
   }
