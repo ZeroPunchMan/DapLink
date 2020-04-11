@@ -26,3 +26,4 @@ fp-info-cache
 *.csv
 
 circuit/gerber
+firmware/build
