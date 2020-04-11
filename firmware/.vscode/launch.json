@@ -1,37 +1,52 @@
 {
-
     "version": "0.2.0",
     "configurations": [
         {
+            //"preLaunchTask": "build",
             "name": "ARM Debug",
-            "type": "cppdbg",                                                       
-            "request": "launch",                                                    
-            "program": "${workspaceFolder}/build/firmware.elf", 
-            "args": [],                                                             
-            "stopAtEntry": false,                                                  
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/firmware.elf",
+            "args": [],
+            "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
-            "externalConsole": true,  
+            "externalConsole": true,
             "MIMode": "gdb",
-            "miDebuggerPath": "/usr/share/gcc-arm-none-eabi/bin/arm-none-eabi-gdb",
+            "windows": {
+                "miDebuggerPath": "arm-none-eabi-gdb.exe"
+            },
+            "linux": {
+                "miDebuggerPath": "arm-none-eabi-gdb"
+            },
             "targetArchitecture": "arm",
-            "setupCommands": [        
+            "setupCommands": [
+                {
+                    "description": "open elf file",
+                    "text": "file D:/Work/DapLink/firmware/build/firmware.elf",
+                    "ignoreFailures": false
+                },
                 {
                     "description": "connect gdb server",
-                    "text": "target remote localhost:3333",                                 
+                    "text": "target remote localhost:3333",
                     "ignoreFailures": true
                 },
                 {
                     "description": "reset halt",
-                    "text": "monitor reset halt",                                              
+                    "text": "monitor reset halt",
                     "ignoreFailures": true
                 },
                 {
-                    "description":"just load",
-                    "text": "load" ,              
-                    "ignoreFailures": true                                      
+                    "description": "just load",
+                    "text": "load",
+                    "ignoreFailures": true
                 }
             ]
+            //"miDebuggerServerAddress": "localhost:3333",
+            //"debugServerPath": "${workspaceFolder}/debug_server.bat",
+            //"debugServerArgs": "",
+            //"serverStarted": "watchpoints",
+            //"serverLaunchTimeout": 3000
         }
     ]
 }
