@@ -11,13 +11,13 @@
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/build",
             "environment": [],
-            "externalConsole": true,
             "MIMode": "gdb",
             "windows": {
                 "miDebuggerPath": "arm-none-eabi-gdb.exe"
             },
             "linux": {
-                "miDebuggerPath": "arm-none-eabi-gdb"
+                "miDebuggerPath": "arm-none-eabi-gdb",
+                "externalConsole": false
             },
             "targetArchitecture": "arm",
             "setupCommands": [
@@ -33,7 +33,7 @@
                 },
                 {
                     "description": "connect gdb server",
-                    "text": "target remote localhost:3333",
+                    "text": "target remote | openocd -f interface/stlink-v2.cfg -f target/stm32f1x.cfg -c \"gdb_port pipe; log_output openocd.log\"",
                     "ignoreFailures": true
                 },
                 {

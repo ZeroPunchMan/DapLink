@@ -13,7 +13,15 @@
         "string.h": "c",
         "stdint.h": "c",
         "stdio.h": "c",
-        "cstdint": "c"
+        "cstdint": "c",
+        "main.h": "c",
+        "stm32f1xx_ll_rcc.h": "c",
+        "gpio.h": "c",
+        "stm32f1xx_ll_system.h": "c",
+        "stm32f1xx.h": "c",
+        "stm32f103xb.h": "c",
+        "core_cm3.h": "c",
+        "stm32f1xx_ll_gpio.h": "c"
     },
     "workbench.editor.enablePreview": false
 }

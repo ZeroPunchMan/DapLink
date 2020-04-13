@@ -7,7 +7,10 @@
                 "${workspaceFolder}/common/clib/inc",
                 "${workspaceFolder}/common/mcu-misc/driver/inc",
                 "${workspaceFolder}/common/mcu-misc/independent/inc",
-                "${env:GANEINC}"
+                "${env:GANEINC}",
+                "${workspaceFolder}/Drivers/STM32F1xx_HAL_Driver/Inc",
+                "${workspaceFolder}/Drivers/CMSIS/Device/ST/STM32F1xx/Include",
+                "${workspaceFolder}/Drivers/CMSIS/Include"
             ],
             "defines": [
                 "USE_FULL_LL_DRIVER",
