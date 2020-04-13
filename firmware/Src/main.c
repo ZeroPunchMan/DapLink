@@ -108,10 +108,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    for (int i = 0; i < 200; i++)
+    for (int i = 0; i < 600; i++)
       DelayUs(10000);
     LL_GPIO_SetOutputPin(GPIOA, LL_GPIO_PIN_7 | LL_GPIO_PIN_8);
-    for (int i = 0; i < 200; i++)
+    for (int i = 0; i < 600; i++)
       DelayUs(10000);
     LL_GPIO_ResetOutputPin(GPIOA, LL_GPIO_PIN_7 | LL_GPIO_PIN_8);
   }

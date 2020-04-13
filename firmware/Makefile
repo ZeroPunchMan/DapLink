@@ -184,7 +184,7 @@ $(BUILD_DIR):
 # program
 #######################################
 program:
-	./download.bat
+	download.bat
 
 #######################################
 # clean up

@@ -2,14 +2,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            //"preLaunchTask": "build",
+            "preLaunchTask": "build",
             "name": "ARM Debug",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/firmware.elf",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/build",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
@@ -22,8 +22,13 @@
             "targetArchitecture": "arm",
             "setupCommands": [
                 {
+                    "description": "set working directory",
+                    "text": "cd ${workspaceFolder}/build",
+                    "ignoreFailures": false
+                },
+                {
                     "description": "open elf file",
-                    "text": "file D:/Work/DapLink/firmware/build/firmware.elf",
+                    "text": "file firmware.elf",
                     "ignoreFailures": false
                 },
                 {

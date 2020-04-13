@@ -21,13 +21,26 @@
             "command": "make program",
             "problemMatcher": [
                 "$jshint"
-            ],
+            ]
         },
         {
             "label": "debug server",
             "type": "shell",
             "command": "${workspaceFolder}/debug_server.bat",
-            "isBackground": true
-        }
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "showReuseMessage": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "test",
+            "type": "shell",
+            "command": "echo ${workspaceFolder}",
+            "problemMatcher": [
+                "$jshint"
+            ]
+        },
     ]
 }
