@@ -35,6 +35,14 @@
             "problemMatcher": []
         },
         {
+            "label": "clean build",
+            "type": "shell",
+            "command": "make clean",
+            "problemMatcher": [
+                "$jshint"
+            ]
+        },
+        {
             "label": "test",
             "type": "shell",
             "command": "echo ${workspaceFolder}",

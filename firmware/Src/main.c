@@ -20,7 +20,9 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "usart.h"
 #include "gpio.h"
+#include "lcconsole.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -76,7 +78,7 @@ int main(void)
   LL_APB2_GRP1_EnableClock(LL_APB2_GRP1_PERIPH_AFIO);
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_PWR);
 
-  NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
+  NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_2);
 
   /* System interrupt init*/
 
@@ -92,13 +94,14 @@ int main(void)
   SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  LL_SYSTICK_EnableIT();
+  LL_USART_EnableIT_RXNE(USART1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -108,12 +111,13 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    for (int i = 0; i < 600; i++)
-      DelayUs(10000);
+    DelayMs(1000);
     LL_GPIO_SetOutputPin(GPIOA, LL_GPIO_PIN_7 | LL_GPIO_PIN_8);
-    for (int i = 0; i < 600; i++)
-      DelayUs(10000);
+    // UsartSendData(USART1, "123", 3);
+    DelayMs(1000);
     LL_GPIO_ResetOutputPin(GPIOA, LL_GPIO_PIN_7 | LL_GPIO_PIN_8);
+    // UsartSendData(USART1, "321", 3);
+    LcLog("123123");
   }
   /* USER CODE END 3 */
 }

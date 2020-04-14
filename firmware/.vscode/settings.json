@@ -1,6 +1,9 @@
 {
     "files.exclude": {
         "*.ioc": true,
+        "**/*.lst": true,
+        "**/*.d": true,
+        "**/*.o": true,
         ".mxproject": true,
         "common/clib/testcase" : true,
         "common/clib/Makefile" : true,
@@ -21,7 +24,8 @@
         "stm32f1xx.h": "c",
         "stm32f103xb.h": "c",
         "core_cm3.h": "c",
-        "stm32f1xx_ll_gpio.h": "c"
+        "stm32f1xx_ll_gpio.h": "c",
+        "usart.h": "c"
     },
     "workbench.editor.enablePreview": false
 }

@@ -23,6 +23,8 @@
 #include "stm32f1xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "sys_time.h"
+#include "usart.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -182,7 +184,7 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
   /* USER CODE BEGIN SysTick_IRQn 0 */
-
+  UpdateSysTime(1);
   /* USER CODE END SysTick_IRQn 0 */
   
   /* USER CODE BEGIN SysTick_IRQn 1 */
@@ -196,6 +198,36 @@ void SysTick_Handler(void)
 /* For the available peripheral interrupt handler names,                      */
 /* please refer to the startup file (startup_stm32f1xx.s).                    */
 /******************************************************************************/
+
+/**
+  * @brief This function handles USART1 global interrupt.
+  */
+void USART1_IRQHandler(void)
+{
+  uint8_t data;
+  /* USER CODE BEGIN USART1_IRQn 0 */
+  if(LL_USART_IsActiveFlag_TXE(USART1))
+  {
+    if(CL_QueuePoll(&usart1Send_q, &data) == CL_ResSuccess)
+    {
+      LL_USART_TransmitData8(USART1, data);
+    }
+    else
+    {
+      LL_USART_DisableIT_TXE(USART1);
+    }
+  }
+  if(LL_USART_IsActiveFlag_RXNE(USART1))
+  {
+    data = LL_USART_ReceiveData8(USART1);
+    CL_QueueAdd(&usart1Recv_q, &data);
+    // LL_USART_ClearFlag_RXNE(USART1);
+  }
+  /* USER CODE END USART1_IRQn 0 */
+  /* USER CODE BEGIN USART1_IRQn 1 */
+
+  /* USER CODE END USART1_IRQn 1 */
+}
 
 /* USER CODE BEGIN 1 */
 
