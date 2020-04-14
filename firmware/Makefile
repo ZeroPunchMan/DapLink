@@ -10,7 +10,8 @@
 #   2015-07-22 - first version
 # ------------------------------------------------
 
-include platform_make.cfg
+include platform.mk
+include common.mk
 
 ######################################
 # target
@@ -47,8 +48,6 @@ Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c \
 Src/system_stm32f1xx.c
-
-C_SOURCES += common/mcu-misc/independent/src/sys_time.c
 
 
 # ASM sources
@@ -117,10 +116,13 @@ C_INCLUDES =  \
 -IInc \
 -IDrivers/STM32F1xx_HAL_Driver/Inc \
 -IDrivers/CMSIS/Device/ST/STM32F1xx/Include \
--IDrivers/CMSIS/Include \
--Icommon/clib/inc \
--Icommon/mcu-misc/independent/inc 
+-IDrivers/CMSIS/Include 
 
+C_INCLUDES += $(CLIB_INC)
+C_INCLUDES += $(MCUMISC_INC)
+
+C_SOURCES += $(CLIB_SRC)
+C_SOURCES += $(MCUMISC_SRC)
 
 # compile gcc flags
 ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
@@ -184,14 +186,17 @@ $(BUILD_DIR):
 # program
 #######################################
 program:
-	download.bat
+	openocd -f ./stm32f103.cfg -c "program ./build/firmware.elf verify reset exit"
 
 #######################################
 # clean up
 #######################################
 clean:
 	$(RM_CMD) $(BUILD_DIR)
-  
+
+test:
+	echo $(CLIB_SRC)
+
 #######################################
 # dependencies
 #######################################
