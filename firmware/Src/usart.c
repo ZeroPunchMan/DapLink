@@ -75,7 +75,10 @@ uint16_t UsartSendData(USART_TypeDef *usart, const uint8_t* data, uint16_t lengt
     return 0;
 
   for(uint16_t i = 0; i < length; i++)
-    CL_QueueAdd(&usart1Send_q, &data[i]);
+  {
+    uint8_t b = data[i];
+    CL_QueueAdd(&usart1Send_q, &b);
+  }
   
   return length;
 }
