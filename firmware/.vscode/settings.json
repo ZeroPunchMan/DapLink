@@ -25,7 +25,8 @@
         "stm32f103xb.h": "c",
         "core_cm3.h": "c",
         "stm32f1xx_ll_gpio.h": "c",
-        "usart.h": "c"
+        "usart.h": "c",
+        "cl_list.h": "c"
     },
     "workbench.editor.enablePreview": false
 }

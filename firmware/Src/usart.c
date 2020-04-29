@@ -80,7 +80,24 @@ uint16_t UsartSendData(USART_TypeDef *usart, const uint8_t* data, uint16_t lengt
     CL_QueueAdd(&usart1Send_q, &b);
   }
   
+  LL_USART_EnableIT_TXE(USART1);
   return length;
+}
+
+
+int _write(int fd, char *str, int len)
+{
+    if (CL_QueueFreeSpace(&usart1Send_q) < len)
+        return 0;
+
+    for (int i = 0; i < len; i++)
+    {
+        uint8_t b = str[i];
+        CL_QueueAdd(&usart1Send_q, &b);
+    }
+
+    LL_USART_EnableIT_TXE(USART1);
+    return len;
 }
 
 // int fputc(int ch, FILE *f)

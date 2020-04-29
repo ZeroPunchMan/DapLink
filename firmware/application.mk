@@ -1,2 +1,2 @@
 
-APP_SRC = Src/lcconsole.c
+APP_SRC = 

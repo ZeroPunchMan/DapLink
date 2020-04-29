@@ -22,11 +22,12 @@
 #include "main.h"
 #include "usart.h"
 #include "gpio.h"
-#include "lcconsole.h"
+#include "ldbgconsole.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "sys_time.h"
+#include "stdio.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -113,11 +114,10 @@ int main(void)
     /* USER CODE BEGIN 3 */
     DelayMs(1000);
     LL_GPIO_SetOutputPin(GPIOA, LL_GPIO_PIN_7 | LL_GPIO_PIN_8);
-    // UsartSendData(USART1, "123", 3);
+    LC_LOG_LINE("step 1");
     DelayMs(1000);
     LL_GPIO_ResetOutputPin(GPIOA, LL_GPIO_PIN_7 | LL_GPIO_PIN_8);
-    // UsartSendData(USART1, "321", 3);
-    LcLog("123123");
+    LC_LOG_LINE("step 2");
   }
   /* USER CODE END 3 */
 }
