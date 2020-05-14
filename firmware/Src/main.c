@@ -114,10 +114,10 @@ int main(void)
     /* USER CODE BEGIN 3 */
     DelayMs(1000);
     LL_GPIO_SetOutputPin(GPIOA, LL_GPIO_PIN_7 | LL_GPIO_PIN_8);
-    LC_LOG_LINE("step 1");
+    LC_LOG_LINE("step 1: %lu", (DWT->CYCCNT));
     DelayMs(1000);
     LL_GPIO_ResetOutputPin(GPIOA, LL_GPIO_PIN_7 | LL_GPIO_PIN_8);
-    LC_LOG_LINE("step 2");
+    LC_LOG_LINE("step 2: %lu", (DWT->CYCCNT));
   }
   /* USER CODE END 3 */
 }

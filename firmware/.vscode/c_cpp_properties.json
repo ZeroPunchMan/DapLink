@@ -11,6 +11,7 @@
                 "${workspaceFolder}/Drivers/CMSIS/Device/ST/STM32F1xx/Include",
                 "${workspaceFolder}/daplink",
                 "${workspaceFolder}/Drivers/CMSIS/Include",
+                "${workspaceFolder}/Inc",
                 "${env:GANEINC}"
             ],
             "defines": [
