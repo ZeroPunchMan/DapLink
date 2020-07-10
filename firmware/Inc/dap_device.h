@@ -215,7 +215,6 @@ static inline void DapSetup(void)
 {
     LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
 
-    LL_GPIO_InitTypeDef GPIO_InitStruct = {0};
     GPIO_InitStruct.Pin = DAP_SWK_TCK_PIN | DAP_SWDIO_TMS_PIN | DAP_TDI_PIN | DAP_TDO_PIN;
     GPIO_InitStruct.Mode = LL_GPIO_MODE_FLOATING;
     GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_HIGH;

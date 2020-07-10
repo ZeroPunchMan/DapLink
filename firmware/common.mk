@@ -1,10 +1,12 @@
 
 CLIB_SRC = $(wildcard common/clib/src/*.c)
 
-CLIB_INC = -Icommon/clib/inc
+CLIB_INC = -Icommon/clib/inc \
+-Icommon/
 
 
-MCUMISC_SRC = common/mcu-misc/independent/src/sys_time.c
+MCUMISC_SRC = common/mcu-misc/src/sys_time.c \
+common/mmlib_config.c
 
-MCUMISC_INC = -Icommon/mcu-misc/independent/inc \
--Icommon/mcu-misc/driver/inc
+MCUMISC_INC = -Icommon/mcu-misc/inc \
+-Icommon/mcu-misc/inc

@@ -324,7 +324,7 @@ __STATIC_FORCEINLINE void PIN_SWDIO_OUT_DISABLE(void)
 */
 __STATIC_FORCEINLINE uint32_t PIN_TDI_IN(void)
 {
-  return TidReadInput;
+  return TidReadInput();
 }
 
 /** TDI I/O pin: Set Output.
