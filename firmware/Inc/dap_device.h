@@ -1,6 +1,7 @@
 #pragma once
 
 #include "board_cfg.h"
+#include "string.h"
 
 //----------------------swclk tck----------------------------------
 //swk tck 1

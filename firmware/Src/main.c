@@ -22,13 +22,14 @@
 #include "main.h"
 #include "usart.h"
 #include "gpio.h"
-#include "ldbgconsole.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "sys_time.h"
 #include "stdio.h"
-#include "dap_agent.h"
+// #include "dap_agent.h"
+#include "soft_spi.h"
+#include "lis3dh.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -107,8 +108,9 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  DapAgent_Init();
-
+  // DapAgent_Init();
+  SoftSpi_Init();
+  Lis3dh_Init();
   while (1)
   {
     /* USER CODE END WHILE */
@@ -119,6 +121,7 @@ int main(void)
     if (TimeElapsed(lastTime) > 1000)
     {
       SetToCurTime(&lastTime);
+      Lis3dh_Test();
       // DapAgent_Test();
     }
   }

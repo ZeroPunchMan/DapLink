@@ -16,7 +16,7 @@
             ]
         },
         {
-            "label": "download flash",
+            "label": "download",
             "type": "shell",
             "command": "make program",
             "problemMatcher": [

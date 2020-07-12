@@ -1,27 +1,43 @@
 #include "mmlib_config.h"
-
+#include "soft_spi.h"
+#include "soft_iic.h"
 //-------------------soft spi--------------------------
-const struct SoftSpiConfigStruct softSpiConfig = {
+const SoftSpiConfig_t softSpiConfig = {
 
-    .clkPort = GPIOB,
-    .clkPin = LL_GPIO_PIN_3,
+    .clkPort = GPIOA,
+    .clkPin = LL_GPIO_PIN_6,
     .clkMode = LL_GPIO_MODE_OUTPUT,
 
-    .mosiPort = GPIOB,
+    .mosiPort = GPIOA,
     .mosiPin = LL_GPIO_PIN_5,
     .mosiMode = LL_GPIO_MODE_OUTPUT,
 
-    .misoPort = GPIOB,
+    .misoPort = GPIOA,
     .misoPin = LL_GPIO_PIN_4,
     .misoMode = LL_GPIO_MODE_INPUT,
 
 };
 
-const struct SoftSpiChannelStruct softSpiChannels[] = {
-    [SpiToFlash] = {
-        .csPort = GPIOB,
-        .csPin = LL_GPIO_PIN_7,
+const SoftSpiChannel_t softSpiChannels[SpiMax] = {
+    [SpiToLis3dh] = {
+        .csPort = GPIOA,
+        .csPin = LL_GPIO_PIN_3,
         .csMode = LL_GPIO_MODE_OUTPUT,
     },
 };
 //*********************end of soft spi******************************
+
+//--------------------------soft iic--------------------------------------
+const SoftIicConfig_t softIicConfig=
+{
+    .clkPort = GPIOA,
+    .clkPin = LL_GPIO_PIN_6,
+    .clkMode = LL_GPIO_MODE_OUTPUT,
+
+    .datPort = GPIOA,
+    .datPin = LL_GPIO_PIN_5,
+    .datInputMode = LL_GPIO_MODE_INPUT,
+    .datOutputMode = LL_GPIO_MODE_OUTPUT,
+};
+
+//*********************end of soft iic******************************

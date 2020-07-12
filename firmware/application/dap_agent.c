@@ -1,6 +1,6 @@
 #include "dap_agent.h"
 #include "DAP_config.h"
-#include "ldbgconsole.h"
+#include "cl_log.h"
 
 void DapAgent_Init(void)
 {
@@ -16,5 +16,5 @@ void DapAgent_Test(void)
 {
     PIN_SWDIO_OUT_DISABLE();
     PIN_SWDIO_OUT(1);
-    LC_LOG_LINE("tck: %lu", PIN_SWDIO_IN());
+    CL_LOG_LINE("tck: %lu", PIN_SWDIO_IN());
 }

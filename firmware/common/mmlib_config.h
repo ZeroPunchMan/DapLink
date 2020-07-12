@@ -9,7 +9,7 @@
 //-------------------soft spi--------------------------
 typedef enum
 {
-    SpiToFlash = 0,
+    SpiToLis3dh = 0,
     SpiMax,
 } SoftSpiChannHandle_t;
 
@@ -22,11 +22,6 @@ typedef enum
 } SpgChannelHandle_t;
 
 
-#include "soft_spi.h"
-
-extern const struct SoftSpiConfigStruct softSpiConfig;
-
-extern const struct SoftSpiChannelStruct softSpiChannels[SpiMax];
 
 
 
