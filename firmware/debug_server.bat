@@ -1,1 +1,1 @@
-openocd -f interface/stlink-v2.cfg -f target/stm32f1x.cfg
+openocd -f interface/stlink-v2.cfg -f target/stm32l4x.cfg
